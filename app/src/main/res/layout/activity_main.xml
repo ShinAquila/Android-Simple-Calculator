@@ -19,27 +19,25 @@
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/extra_buttons">
 
-            <TextView
+            <EditText
                 android:id="@+id/tempNums"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingRight="20dp"
+                android:editable="false"
                 android:gravity="right"
+                android:paddingRight="20dp"
                 android:textColor="#BABABA"
-                android:text="test"
                 android:textSize="20sp">
 
-            </TextView>
+            </EditText>
             <EditText
                 android:id="@+id/input_output"
-                android:editable="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="48dp"
                 android:gravity="right"
-                android:text="0"
                 android:textColor="@color/white"
-                android:textSize="80sp"
+                android:textSize="50sp"
                 android:layout_marginRight="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/extra_buttons"
                 app:layout_constraintTop_toTopOf="parent"
@@ -193,8 +191,8 @@
                     android:text="√x"
                     android:textSize="20sp"></Button>
                 <Button
-                    android:id="@+id/divideBTN"
-                    android:onClick="divide"
+                    android:id="@+id/divide"
+                    android:onClick="divideBTN"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
@@ -204,8 +202,8 @@
                     android:text="÷"
                     android:textSize="32sp"></Button>
                 <Button
-                    android:id="@+id/num7BTN"
-                    android:onClick="num7"
+                    android:id="@+id/numSeven"
+                    android:onClick="sevenBTN"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
@@ -215,8 +213,8 @@
                     android:text="7"
                     android:textSize="32sp"></Button>
                 <Button
-                    android:id="@+id/num8BTN"
-                    android:onClick="num8"
+                    android:id="@+id/numEight"
+                    android:onClick="eightBTN"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
@@ -226,8 +224,8 @@
                     android:text="8"
                     android:textSize="32sp"></Button>
                 <Button
-                    android:id="@+id/num9BTN"
-                    android:onClick="num9"
+                    android:id="@+id/numNine"
+                    android:onClick="nineBTN"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
@@ -237,8 +235,8 @@
                     android:text="9"
                     android:textSize="32sp"></Button>
                 <Button
-                    android:id="@+id/multiplyBTN"
-                    android:onClick="multiply"
+                    android:id="@+id/multiply"
+                    android:onClick="multiplyBTN"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
@@ -248,8 +246,8 @@
                     android:text="x"
                     android:textSize="22sp"></Button>
                 <Button
-                    android:id="@+id/num4BTN"
-                    android:onClick="num4"
+                    android:id="@+id/numFour"
+                    android:onClick="fourBTN"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
@@ -259,8 +257,8 @@
                     android:text="4"
                     android:textSize="32sp"></Button>
                 <Button
-                    android:id="@+id/num5BTN"
-                    android:onClick="num5"
+                    android:id="@+id/numFive"
+                    android:onClick="fiveBTN"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
@@ -270,8 +268,8 @@
                     android:text="5"
                     android:textSize="32sp"></Button>
                 <Button
-                    android:id="@+id/num6BTN"
-                    android:onClick="num6"
+                    android:id="@+id/numSix"
+                    android:onClick="sixBTN"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
@@ -281,8 +279,8 @@
                     android:text="6"
                     android:textSize="32sp"></Button>
                 <Button
-                    android:id="@+id/subtractBTN"
-                    android:onClick="subtract"
+                    android:id="@+id/subtract"
+                    android:onClick="subtractBTN"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
@@ -292,8 +290,8 @@
                     android:text="-"
                     android:textSize="32sp"></Button>
                 <Button
-                    android:id="@+id/num1BTN"
-                    android:onClick="num1"
+                    android:id="@+id/numOne"
+                    android:onClick="oneBTN"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
@@ -303,8 +301,8 @@
                     android:text="1"
                     android:textSize="32sp"></Button>
                 <Button
-                    android:id="@+id/num2BTN"
-                    android:onClick="num2"
+                    android:id="@+id/numTwo"
+                    android:onClick="twoBTN"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
@@ -314,8 +312,8 @@
                     android:text="2"
                     android:textSize="32sp"></Button>
                 <Button
-                    android:id="@+id/num3BTN"
-                    android:onClick="num3"
+                    android:id="@+id/numThree"
+                    android:onClick="threeBTN"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
@@ -325,8 +323,8 @@
                     android:text="3"
                     android:textSize="32sp"></Button>
                 <Button
-                    android:id="@+id/addBTN"
-                    android:onClick="add"
+                    android:id="@+id/add"
+                    android:onClick="addBTN"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
@@ -345,8 +343,8 @@
                     android:text="+/-"
                     android:textSize="32sp"></Button>
                 <Button
-                    android:id="@+id/num0BTN"
-                    android:onClick="num0"
+                    android:id="@+id/numZero"
+                    android:onClick="zeroBTN"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
@@ -365,8 +363,8 @@
                     android:text="."
                     android:textSize="32sp"></Button>
                 <Button
-                    android:id="@+id/totalBTN"
-                    android:onClick="total"
+                    android:id="@+id/total"
+                    android:onClick="totalBTN"
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:layout_rowWeight="1"
