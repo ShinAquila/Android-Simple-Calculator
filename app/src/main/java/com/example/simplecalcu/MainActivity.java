@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        input_output = findViewById(R.id.input_output);
+        input_output = (EditText) findViewById(R.id.input_output);
         input_output.setShowSoftInputOnFocus(false);
         input_output.setFocusable(false);
 
@@ -40,11 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void operatorUpdate_text(String ope){
         String input = input_output.getText().toString();
-        if(input.contains(".")){
-            num1 = (int) Double.parseDouble(input);
-        }else{
-            num1 = Integer.parseInt(input);
-        }
+        num1 = Double.parseDouble(input);
 
         temp.setText(input.concat(ope));
 
@@ -120,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void totalBTN(View v){
-        String input = input_output.getText().toString();
+        String num2String = input_output.getText().toString();
         String num1String = null;
 
         if ((int) num1 == num1){
@@ -129,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             num1String = String.valueOf(num1);
         }
 
-        num2 = Double.parseDouble(input);
+        num2 = Double.parseDouble(num2String);
 
         String operator = null;
         double result = 0;
@@ -154,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             input_output.setText(String.valueOf(result));
         }
 
-        temp.setText(String.format("%s%s%s",num1String,operator,input));
+        temp.setText(String.format("%s%s%s",num1String,operator,num2String));
     }
 
     public void clear_entry(View v){
@@ -169,5 +165,4 @@ public class MainActivity extends AppCompatActivity {
             input_output.setText(word.substring(0, input - 1));
         }
     }
-
 }
