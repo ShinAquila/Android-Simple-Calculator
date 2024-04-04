@@ -115,6 +115,16 @@ public class MainActivity extends AppCompatActivity {
         operatorIndicator = 4;
     }
 
+//    public void percentBTN(View v){
+//        operatorUpdate_text("%");
+//
+//        if (num1 != 0){
+//
+//        }
+//
+//        input_output.setText(String.valueOf(num1/100));
+//    }
+
     public void totalBTN(View v){
         String num2String = input_output.getText().toString();
         String num1String = null;
