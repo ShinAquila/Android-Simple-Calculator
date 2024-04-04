@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     private double num1;
     private double num2;
     private int operatorIndicator;
+    private String stringNum1;
+    private String stringNum2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +26,12 @@ public class MainActivity extends AppCompatActivity {
         input_output = (EditText) findViewById(R.id.input_output);
         input_output.setShowSoftInputOnFocus(false);
         input_output.setFocusable(false);
+        stringNum1 = input_output.getText().toString();
 
         temp = findViewById(R.id.tempNums);
         temp.setShowSoftInputOnFocus(false);
         temp.setFocusable(false);
+        stringNum2 = temp.getText().toString();
     }
 
     public void update_text(String toAdd){
@@ -43,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         num1 = Double.parseDouble(input);
 
         temp.setText(input.concat(ope));
-
     }
 
     public void zeroBTN(View v){
@@ -84,32 +87,29 @@ public class MainActivity extends AppCompatActivity {
 
     public void addBTN(View v){
         operatorUpdate_text("+");
-        String tempNum = input_output.getText().toString();
-        num1 = Double.parseDouble(tempNum);
+//        if ((!stringNum1.isEmpty())&& (!stringNum2.isEmpty())){
+//            totalBTN(v);
+//        } else {
+//            input_output.setText("");
+//        }
 
         input_output.setText("");
         operatorIndicator = 1;
     }
     public void subtractBTN(View v){
         operatorUpdate_text("-");
-        String tempNum = input_output.getText().toString();
-        num1 = Double.parseDouble(tempNum);
 
         input_output.setText("");
         operatorIndicator = 2;
     }
     public void multiplyBTN(View v){
         operatorUpdate_text("x");
-        String tempNum = input_output.getText().toString();
-        num1 = Double.parseDouble(tempNum);
 
         input_output.setText("");
         operatorIndicator = 3;
     }
     public void divideBTN(View v){
         operatorUpdate_text("÷");
-        String tempNum = input_output.getText().toString();
-        num1 = Double.parseDouble(tempNum);
 
         input_output.setText("");
         operatorIndicator = 4;
