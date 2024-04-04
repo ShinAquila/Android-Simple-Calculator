@@ -89,11 +89,7 @@ public class MainActivity extends AppCompatActivity {
     public void addBTN(View v){
         operatorUpdate_text("+");
         String tempNum = input_output.getText().toString();
-        if(tempNum.contains(".")){
-            num1 = Double.parseDouble(tempNum);
-        }else{
-            num1 = Integer.parseInt(tempNum);
-        }
+        num1 = Double.parseDouble(tempNum);
 
         input_output.setText("");
         operatorIndicator = 1;
@@ -101,33 +97,24 @@ public class MainActivity extends AppCompatActivity {
     public void subtractBTN(View v){
         operatorUpdate_text("-");
         String tempNum = input_output.getText().toString();
-        if(tempNum.contains(".")){
-            num1 = Double.parseDouble(tempNum);
-        }else{
-            num1 = Integer.parseInt(tempNum);
-        }
+        num1 = Double.parseDouble(tempNum);
+
         input_output.setText("");
         operatorIndicator = 2;
     }
     public void multiplyBTN(View v){
         operatorUpdate_text("x");
         String tempNum = input_output.getText().toString();
-        if(tempNum.contains(".")){
-            num1 = Double.parseDouble(tempNum);
-        }else{
-            num1 = Integer.parseInt(tempNum);
-        }
+        num1 = Double.parseDouble(tempNum);
+
         input_output.setText("");
         operatorIndicator = 3;
     }
     public void divideBTN(View v){
         operatorUpdate_text("÷");
         String tempNum = input_output.getText().toString();
-        if(tempNum.contains(".")){
-            num1 = Double.parseDouble(tempNum);
-        }else{
-            num1 = Integer.parseInt(tempNum);
-        }
+        num1 = Double.parseDouble(tempNum);
+
         input_output.setText("");
         operatorIndicator = 4;
     }
@@ -166,9 +153,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             input_output.setText(String.valueOf(result));
         }
-
-//        input_output.setText(String.valueOf(result));
-
 
         temp.setText(String.format("%s%s%s",num1String,operator,input));
     }
