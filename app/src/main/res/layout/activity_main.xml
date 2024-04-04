@@ -14,15 +14,19 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/extra_buttons">
+            app:layout_constraintBottom_toTopOf="@+id/main_buttons"
+            tools:layout_editor_absoluteX="0dp">
 
             <EditText
                 android:id="@+id/tempNums"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:editable="false"
                 android:gravity="right"
                 android:paddingRight="20dp"
@@ -30,15 +34,16 @@
                 android:textSize="20sp">
 
             </EditText>
+
             <EditText
                 android:id="@+id/input_output"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="48dp"
+                android:layout_margin="10dp"
+                android:editable="false"
                 android:gravity="right"
                 android:textColor="@color/white"
                 android:textSize="50sp"
-                android:layout_marginRight="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/extra_buttons"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0"
@@ -46,75 +51,11 @@
 
         </LinearLayout>
 
-
-        <LinearLayout
-            android:id="@+id/extra_buttons"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/main_buttons">
-
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="5"
-                android:orientation="horizontal">
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="5dp"
-                    android:backgroundTint="@color/black"
-                    android:text="MC"
-                    android:minWidth="10dp"
-                    android:textColor="@color/white"></Button>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_row="0"
-                    android:layout_column="1"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="5dp"
-                    android:backgroundTint="@color/black"
-                    android:text="MR"
-                    android:minWidth="10dp"
-                    android:textColor="@color/white"></Button>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="5dp"
-                    android:backgroundTint="@color/black"
-                    android:text="M+"
-                    android:minWidth="10dp"
-                    android:textColor="@color/white"></Button>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="5dp"
-                    android:backgroundTint="@color/black"
-                    android:text="M-"
-                    android:minWidth="10dp"
-                    android:textColor="@color/white"></Button>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_margin="5dp"
-                    android:backgroundTint="@color/black"
-                    android:text="MS"
-                    android:minWidth="10dp"
-                    android:textColor="@color/white"></Button>
-
-            </GridLayout>
-        </LinearLayout>
-
         <LinearLayout
             android:id="@+id/main_buttons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent">
 
@@ -124,77 +65,43 @@
                 android:columnCount="4">
 
                 <Button
-                    android:id="@+id/percent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:backgroundTint="#656565"
-                    android:padding="10dp"
-                    android:text="%"
-                    android:textSize="32sp"></Button>
-                <Button
                     android:id="@+id/clear_entryBTN"
                     android:onClick="clear_entry"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="#656565"
                     android:padding="10dp"
                     android:text="CE"
-                    android:textSize="32sp"></Button>
+                    android:textSize="26sp"/>
                 <Button
-                    android:id="@+id/clearBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:id="@+id/backspace"
+                    android:layout_width="70dp"
+                    android:onClick="backspaceBTN"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="#656565"
                     android:padding="10dp"
-                    android:text="C"
-                    android:textSize="32sp"></Button>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:backgroundTint="#F67171"
-                    android:padding="10dp"
                     android:text="⌫"
-                    android:textSize="32sp"></Button>
+                    android:textSize="26sp"/>
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:id="@+id/percent"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:backgroundTint="#A1A1A1"
+                    android:backgroundTint="#656565"
                     android:padding="10dp"
-                    android:text="¹⁄ₓ"
-                    android:textSize="22sp"></Button>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:backgroundTint="#A1A1A1"
-                    android:padding="10dp"
-                    android:text="x²"
-                    android:textSize="20sp"></Button>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:backgroundTint="#A1A1A1"
-                    android:padding="10dp"
-                    android:text="√x"
-                    android:textSize="20sp"></Button>
+                    android:text="%"
+                    android:textSize="32sp"/>
+
                 <Button
                     android:id="@+id/divide"
                     android:onClick="divideBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="#FFB550"
@@ -204,8 +111,8 @@
                 <Button
                     android:id="@+id/numSeven"
                     android:onClick="sevenBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="@color/white"
@@ -215,8 +122,8 @@
                 <Button
                     android:id="@+id/numEight"
                     android:onClick="eightBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="@color/white"
@@ -226,8 +133,8 @@
                 <Button
                     android:id="@+id/numNine"
                     android:onClick="nineBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="@color/white"
@@ -237,8 +144,8 @@
                 <Button
                     android:id="@+id/multiply"
                     android:onClick="multiplyBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="#FFB550"
@@ -248,8 +155,8 @@
                 <Button
                     android:id="@+id/numFour"
                     android:onClick="fourBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="@color/white"
@@ -259,8 +166,8 @@
                 <Button
                     android:id="@+id/numFive"
                     android:onClick="fiveBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="@color/white"
@@ -270,8 +177,8 @@
                 <Button
                     android:id="@+id/numSix"
                     android:onClick="sixBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="@color/white"
@@ -281,8 +188,8 @@
                 <Button
                     android:id="@+id/subtract"
                     android:onClick="subtractBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="#FFB550"
@@ -292,8 +199,8 @@
                 <Button
                     android:id="@+id/numOne"
                     android:onClick="oneBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="@color/white"
@@ -303,8 +210,8 @@
                 <Button
                     android:id="@+id/numTwo"
                     android:onClick="twoBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="@color/white"
@@ -314,8 +221,8 @@
                 <Button
                     android:id="@+id/numThree"
                     android:onClick="threeBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="@color/white"
@@ -325,8 +232,8 @@
                 <Button
                     android:id="@+id/add"
                     android:onClick="addBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="#FFB550"
@@ -334,19 +241,11 @@
                     android:text="+"
                     android:textSize="32sp"></Button>
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:backgroundTint="#A1A1A1"
-                    android:padding="10dp"
-                    android:text="+/-"
-                    android:textSize="32sp"></Button>
-                <Button
                     android:id="@+id/numZero"
+                    android:layout_columnSpan="2"
                     android:onClick="zeroBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="@color/white"
@@ -354,8 +253,10 @@
                     android:text="0"
                     android:textSize="32sp"></Button>
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:id="@+id/dot"
+                    android:onClick="dotBTN"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="#A1A1A1"
@@ -365,8 +266,8 @@
                 <Button
                     android:id="@+id/total"
                     android:onClick="totalBTN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
+                    android:layout_width="70dp"
+                    android:layout_height="80dp"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
                     android:backgroundTint="#7AD9FF"

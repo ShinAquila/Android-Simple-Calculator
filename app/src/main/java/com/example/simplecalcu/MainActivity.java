@@ -12,8 +12,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText input_output;
     private TextView temp;
 
-    private int num1;
-    private int num2;
+    private double num1;
+    private double num2;
     private int operatorIndicator;
 
     @Override
@@ -23,10 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
         input_output = findViewById(R.id.input_output);
         input_output.setShowSoftInputOnFocus(false);
+        input_output.setFocusable(false);
 
         temp = findViewById(R.id.tempNums);
         temp.setShowSoftInputOnFocus(false);
-
+        temp.setFocusable(false);
     }
 
     public void update_text(String toAdd){
@@ -39,7 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void operatorUpdate_text(String ope){
         String input = input_output.getText().toString();
-        num1 = Integer.parseInt(input);
+        if(input.contains(".")){
+            num1 = (int) Double.parseDouble(input);
+        }else{
+            num1 = Integer.parseInt(input);
+        }
 
         temp.setText(input.concat(ope));
 
@@ -76,66 +81,122 @@ public class MainActivity extends AppCompatActivity {
         update_text("9");
     }
 
+    public void dotBTN(View v){
+        update_text(".");
+    }
+
 
     public void addBTN(View v){
         operatorUpdate_text("+");
-        num1 = Integer.parseInt(input_output.getText().toString());
+        String tempNum = input_output.getText().toString();
+        if(tempNum.contains(".")){
+            num1 = Double.parseDouble(tempNum);
+        }else{
+            num1 = Integer.parseInt(tempNum);
+        }
+
         input_output.setText("");
         operatorIndicator = 1;
     }
     public void subtractBTN(View v){
-        update_text("-");
-        num1 = Integer.parseInt(input_output.getText().toString());
+        operatorUpdate_text("-");
+        String tempNum = input_output.getText().toString();
+        if(tempNum.contains(".")){
+            num1 = Double.parseDouble(tempNum);
+        }else{
+            num1 = Integer.parseInt(tempNum);
+        }
         input_output.setText("");
         operatorIndicator = 2;
     }
     public void multiplyBTN(View v){
-        update_text("x");
-        num1 = Integer.parseInt(input_output.getText().toString());
+        operatorUpdate_text("x");
+        String tempNum = input_output.getText().toString();
+        if(tempNum.contains(".")){
+            num1 = Double.parseDouble(tempNum);
+        }else{
+            num1 = Integer.parseInt(tempNum);
+        }
         input_output.setText("");
         operatorIndicator = 3;
     }
     public void divideBTN(View v){
-        update_text("÷");
-        num1 = Integer.parseInt(input_output.getText().toString());
+        operatorUpdate_text("÷");
+        String tempNum = input_output.getText().toString();
+        if(tempNum.contains(".")){
+            num1 = Double.parseDouble(tempNum);
+        }else{
+            num1 = Integer.parseInt(tempNum);
+        }
         input_output.setText("");
         operatorIndicator = 4;
     }
 
-
     public void totalBTN(View v){
         String input = input_output.getText().toString();
-        String temps = String.valueOf(num1);
-        num2 = Integer.parseInt(input);
+        String num1temps = String.valueOf(num1);
+        
+
+        if(input.contains(".")){
+            num2 = Double.parseDouble(input);
+        }else{
+            num2 = Integer.parseInt(input);
+        }
 
         String operator = null;
 
-        int result = 0;
+        int intResult = 0;
+        double doubResult = 0;
 
-        if (operatorIndicator==1){
-            result = num1 + num2;
-            operator = "+";
-        } else if (operatorIndicator==2){
-            result = num1 - num2;
-            operator = "-";
-        } else if (operatorIndicator==3){
-            result = num1 * num2;
-            operator = "*";
-        } else if (operatorIndicator==4){
-            result = num1 / num2;
-            operator = "/";
+
+
+        if(input.contains(".")||num1temps.contains(".")){
+            if (operatorIndicator==1){
+                doubResult = num1 + num2;
+                operator = "+";
+            } else if (operatorIndicator==2){
+                doubResult = num1 - num2;
+                operator = "-";
+            } else if (operatorIndicator==3){
+                doubResult = num1 * num2;
+                operator = "*";
+            } else if (operatorIndicator==4){
+                doubResult = num1 / num2;
+                operator = "/";
+            }
+            input_output.setText(String.valueOf(doubResult));
+        }else{
+            if (operatorIndicator==1){
+                intResult = (int) (num1 + num2);
+                operator = "+";
+            } else if (operatorIndicator==2){
+                intResult = (int) (num1 - num2);
+                operator = "-";
+            } else if (operatorIndicator==3){
+                intResult = (int) (num1 * num2);
+                operator = "*";
+            } else if (operatorIndicator==4){
+                intResult = (int) (num1 / num2);
+                operator = "/";
+            }
+            input_output.setText(String.valueOf(intResult));
         }
+        num1temps = num1temps.concat(operator);
 
-        temps = temps.concat(operator);
-
-        temp.setText(temps.concat(input));
-
-        input_output.setText(String.valueOf(result));
+        temp.setText(num1temps.concat(input));
     }
 
     public void clear_entry(View v){
         input_output.setText("");
         temp.setText("");
+    }
+
+    public void backspaceBTN(View v){
+        String word = input_output.getText().toString();
+        int input = word.length();
+        if (input > 0) {
+            input_output.setText(word.substring(0, input - 1));
+        }
     }
 
 }
