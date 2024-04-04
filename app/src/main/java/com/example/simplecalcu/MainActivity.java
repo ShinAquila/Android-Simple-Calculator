@@ -134,8 +134,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void totalBTN(View v){
         String input = input_output.getText().toString();
-        String num1temps = String.valueOf(num1);
+        String num1String = String.valueOf(num1);
         num2 = Integer.parseInt(input);
+
+        int num2Temp = 0;
 
         String operator = null;
         double result = 0;
@@ -155,10 +157,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         input_output.setText(String.valueOf(result));
-
-        num1temps = num1temps.concat(operator);
-
-        temp.setText(num1temps.concat(input));
+        temp.setText(String.format("%s%s%s",num1String,operator,input));
     }
 
     public void clear_entry(View v){
