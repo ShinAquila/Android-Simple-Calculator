@@ -135,52 +135,27 @@ public class MainActivity extends AppCompatActivity {
     public void totalBTN(View v){
         String input = input_output.getText().toString();
         String num1temps = String.valueOf(num1);
-        
-
-        if(input.contains(".")){
-            num2 = Double.parseDouble(input);
-        }else{
-            num2 = Integer.parseInt(input);
-        }
+        num2 = Integer.parseInt(input);
 
         String operator = null;
+        double result = 0;
 
-        int intResult = 0;
-        double doubResult = 0;
-
-
-
-        if(input.contains(".")||num1temps.contains(".")){
-            if (operatorIndicator==1){
-                doubResult = num1 + num2;
-                operator = "+";
-            } else if (operatorIndicator==2){
-                doubResult = num1 - num2;
-                operator = "-";
-            } else if (operatorIndicator==3){
-                doubResult = num1 * num2;
-                operator = "*";
-            } else if (operatorIndicator==4){
-                doubResult = num1 / num2;
-                operator = "/";
-            }
-            input_output.setText(String.valueOf(doubResult));
-        }else{
-            if (operatorIndicator==1){
-                intResult = (int) (num1 + num2);
-                operator = "+";
-            } else if (operatorIndicator==2){
-                intResult = (int) (num1 - num2);
-                operator = "-";
-            } else if (operatorIndicator==3){
-                intResult = (int) (num1 * num2);
-                operator = "*";
-            } else if (operatorIndicator==4){
-                intResult = (int) (num1 / num2);
-                operator = "/";
-            }
-            input_output.setText(String.valueOf(intResult));
+        if (operatorIndicator==1){
+            result = (num1 + num2);
+            operator = "+";
+        } else if (operatorIndicator==2){
+            result = (num1 - num2);
+            operator = "-";
+        } else if (operatorIndicator==3){
+            result = (num1 * num2);
+            operator = "*";
+        } else if (operatorIndicator==4){
+            result = (num1 / num2);
+            operator = "/";
         }
+
+        input_output.setText(String.valueOf(result));
+
         num1temps = num1temps.concat(operator);
 
         temp.setText(num1temps.concat(input));
