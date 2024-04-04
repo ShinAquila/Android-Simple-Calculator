@@ -134,10 +134,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void totalBTN(View v){
         String input = input_output.getText().toString();
-        String num1String = String.valueOf(num1);
-        num2 = Integer.parseInt(input);
+        String num1String = null;
 
-        int num2Temp = 0;
+        if ((int) num1 == num1){
+            num1String = String.valueOf((int)num1);
+        } else{
+            num1String = String.valueOf(num1);
+        }
+
+        num2 = Double.parseDouble(input);
 
         String operator = null;
         double result = 0;
@@ -156,7 +161,15 @@ public class MainActivity extends AppCompatActivity {
             operator = "/";
         }
 
-        input_output.setText(String.valueOf(result));
+        if ((int) result == result){
+            input_output.setText(String.valueOf((int)result));
+        } else {
+            input_output.setText(String.valueOf(result));
+        }
+
+//        input_output.setText(String.valueOf(result));
+
+
         temp.setText(String.format("%s%s%s",num1String,operator,input));
     }
 
